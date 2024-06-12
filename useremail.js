@@ -23,37 +23,51 @@ let appData = {
              {name: 'Brandon', email:'abcrealworld@gmail.com',lastMessage: "I'm working on week 19"}, 
 
     ],//array of objects
+
+    emails:[{mailbox:'inbox',email:"bob@g.com", subject:"something", body:"need to talk to about somethings"},
+        {mailbox:'sent',email:"cool@g.com", subject:"something", body:"need to talk to about somethings"},
+        {mailbox: 'drafts',email: "wow@g.com", subject:"something",body: "need to talk to about somethings"}
+
+    ], //array of objects
 };
 //1. Get a list of mailbox names
-function getMailboxNames(Data) {
-    return Data.mailboxes;
-    console.log("Mailbox names:",getMailboxNames);
+function getMailboxNames(data) {
+    return data.mailboxes;
 }
+console.log("Mailbox names:", getMailboxNames(appData));
+
 //2.Get a list of emails
 function getEmails(data) {
     return data.contact.map(contact => contact.email);
-    console.log("Emails:",getEmails);
+
 }
+console.log("Emails:",getEmails(appData));
+
 //3.Get the text of the second email in the visible list
-function getsecondemailtext(data) {
-    if(data.contact.length >= 2){
-        return data.contact.lastMessage;
+
+function getSecondEmailText(data) {
+    if(data.emails.length >= 2){
+        return data.emails[1];
     } else{
         return "there is less than 2 emails in this list";
     }
+    
 }
+console.log(getSecondEmailText(appData));
+
 //4.Mark an email as sent
 function markEmailAsSent(data) {
-    if (sentEmail) {
-        data.mailboxes.push(sentEmail); //added to sent mailbox
-        console.log('marked from sent email as sent');
-    }else {
-        console.log("no email marked sent");
-           }
+   for( email of data.emails){
+    if (email.mailbox ==="drafts"){
+        email.mailbox= "sent";
+        break;
+    }
+   }
 }
+console.log(markEmailAsSent(data));
 //5.Add a draft email to the drafts mailbox
-function addDraftEmail(data,) {
-    data.mailboxes.push('Drafts');
-    console.log('added draft email from ${draftEmail.email} from Drafts')
+function addDraftEmail(data) {  
 }
+console.log(addDraftEmail(appData));
+
 
