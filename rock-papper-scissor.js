@@ -40,7 +40,13 @@ const hands = ['rock' , 'paper', 'scissors'];
        console.log(`${player2.name} wins!`)
        return player2
     }
-
     };
-
-
+     //Returns the winner object (null if no winner)
+      const winner= playRound(player1, player2);
+      if (winner) {
+      console.log(`The winner is ${winner.name'}in this round);
+                                   }else{ 
+       console.log('There is no ${winner.name`}in this round);
+     };
+      
+      
