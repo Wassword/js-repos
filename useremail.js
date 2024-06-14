@@ -64,9 +64,16 @@ function markEmailAsSent(data) {
     }
    }
 }
-console.log(markEmailAsSent(data));
+console.log(markEmailAsSent(appData));
+
 //5.Add a draft email to the drafts mailbox
-function addDraftEmail(data) {  
+function addDraftEmail(data) {
+    for(draft of data.emails){
+        if(draft.mailbox==="drafts")
+            return addDraftEmail;
+
+    } 
+    
 }
 console.log(addDraftEmail(appData));
 
